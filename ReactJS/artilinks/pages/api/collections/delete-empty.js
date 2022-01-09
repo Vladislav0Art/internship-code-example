@@ -11,12 +11,12 @@ const respondWithError = require('../../../app/utils/exceptions/respondWithError
 
 
 
-// @route:  POST /api/collections/delete-empty
+// @route:  DELETE /api/collections/delete-empty
 // @descr:  deletes collections with 0 bookmarks by group id
 // @access: Private
 export default async function handler(req, res) {
 	// if request method is not POST
-	if(req.method !== "POST") {
+	if(req.method !== "DELETE") {
 		const err = ApiError.BadRequest(`Method '${req.method}' is not supported on this API route`);
 		return respondWithError(err, res);
 	}

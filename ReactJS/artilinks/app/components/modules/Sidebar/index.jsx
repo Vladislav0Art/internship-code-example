@@ -54,7 +54,7 @@ const Sidebar = () => {
 				ref={sidebarRef}
 				className={styles.sidebar}
 				style={{ width: nodeWidth }}
-				onMouseDown={event => event.preventDefault()}
+				// onMouseDown={event => event.preventDefault()}
 			>
 
 				<SidebarMenuIcon transitionIn={!toolbar.isOpened} onClick={toggleToolbar} />

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
 // elements
@@ -9,50 +9,62 @@ import {
 	DefaultCollections,
 	GroupList
 } from '../../modules';
+// modals
+import { AddGroupModal } from '../../modals';
 // styles
 import styles from './styles.module.scss';
-
-
-import { useData } from '../../../hooks';
 
 
 
 const SidebarContentLayout = ({ transitionIn }) => {
 	const contentSidebarTransitionRef = useRef(null);
 
-	return (
-		<CSSTransition
-			nodeRef={contentSidebarTransitionRef}
-			in={transitionIn}
-			timeout={300 + 300} // transition-time + transition-delay
-			classNames={{
-				enter: styles.contentEnter,
-				enterActive: styles.contentEnterActive,
-				enterDone: styles.contentEnterDone,
-				exit: styles.contentExit,
-				exitActive: styles.contentExitActive,
-				exitDone: styles.contentExitDone
-			}}
-		>
-			<div
-				ref={contentSidebarTransitionRef}
-				className={styles.content}
-			>
-				
-				<div className={styles.topPart}>
-					<ProfilePreview onIconClick={() => console.log('Icon click')} />
-					<DefaultCollections />
-				</div>
+	// add group modal visibility
+	const [isAddGroupModalVisible, setIsAddGroupModalVisible] = useState(false);
 
-				<div className={styles.groupButton}>
-					<Button onClick={() => console.log('Create group')}>Add new group</Button>
+	// toggling add group modal visibility
+	const toggleVisibility = () => setIsAddGroupModalVisible(prevState => !prevState);
+
+	return (
+		<React.Fragment>
+			<CSSTransition
+				nodeRef={contentSidebarTransitionRef}
+				in={transitionIn}
+				timeout={300 + 300} // transition-time + transition-delay
+				classNames={{
+					enter: styles.contentEnter,
+					enterActive: styles.contentEnterActive,
+					enterDone: styles.contentEnterDone,
+					exit: styles.contentExit,
+					exitActive: styles.contentExitActive,
+					exitDone: styles.contentExitDone
+				}}
+			>
+				<div
+					ref={contentSidebarTransitionRef}
+					className={styles.content}
+				>
+					
+					<div className={styles.topPart}>
+						<ProfilePreview />
+						<DefaultCollections />
+					</div>
+
+					<div className={styles.groupButton}>
+						<Button onClick={toggleVisibility}>Add new group</Button>
+					</div>
+					
+					<div className={styles.groupList}>
+						<GroupList />
+					</div>
 				</div>
-				
-				<div className={styles.groupList}>
-					<GroupList />
-				</div>
-			</div>
-		</CSSTransition>
+			</CSSTransition>
+			
+			<AddGroupModal
+				isVisible={isAddGroupModalVisible}
+				toggleVisibility={toggleVisibility}
+			/>
+		</React.Fragment>
 	);
 };
 

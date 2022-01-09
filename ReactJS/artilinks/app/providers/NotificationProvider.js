@@ -20,9 +20,15 @@ const NotificationProvider = ({ children }) => {
 	};
 	
 	const [notification, setNotification] = useState(initialNotificationState);
+	const [onConfirm, setOnConfirm] = useState(() => removeNotification);
 
 	// setting notification to initial value
-	const removeNotification = () => setNotification(initialNotificationState);
+	function removeNotification() {
+		setNotification(prevState => ({
+			...prevState,
+			isNotification: false
+		}));
+	}
 
 	// adding error
 	const addErrorNotification = (err) => {
@@ -35,13 +41,15 @@ const NotificationProvider = ({ children }) => {
 	};
 
 	// adding warning
-	const addWarningNotification = ({ title, message }) => {
+	const addWarningNotification = ({ title, message }, onConfirm) => {
 		setNotification({
 			title: title ?? 'Warning!',
 			message: message ?? '',
 			type: notificationTypes.warning,
 			isNotification: true
 		});
+		// setting confirm function
+		setOnConfirm(() => onConfirm);
 	};
 
 
@@ -62,6 +70,7 @@ const NotificationProvider = ({ children }) => {
 		addWarningNotification,
 		addInfoNotification,
 		removeNotification,
+		onConfirm,
 	};
 
 	return (

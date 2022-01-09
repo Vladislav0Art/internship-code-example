@@ -7,11 +7,29 @@ const DataContext = createContext({
 	bookmarks: null,
 	isLoadingData: null,
 
-	viewedCollectionId: null,
 	viewedBookmarks: null,
+	viewedCollection: null,
+	searchValue: null,
 
-	setViewedCollectionId: () => {},
-	getBookmarksOfViewedCollection: () => {},
+	setViewedCollectionAndBookmarks: () => {},
+	onSearch: () => {},
+
+	// groups CRUD
+	createGroup: () => {},
+	deleteGroup: () => {},
+	updateGroup: () => {},
+
+	// collections CRUD
+	createCollection: () => {},
+	deleteCollection: () => {},
+	deleteEmptyCollections: () => {},
+	updateCollection: () => {},
+	updateCollectionGroupId: () => {},
+
+	// bookmarks CRUD:
+	createBookmark: () => {},
+	updateBookmark: () => {},
+	deleteBookmark: () => {},
 });
 
 export default DataContext;

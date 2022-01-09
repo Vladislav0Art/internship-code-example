@@ -15,7 +15,7 @@ const Alert = ({
 	title,
 	message,
 	onConfirm,
-	onCancel = () => {}
+	onCancel,
 }) => {
 
 	const alertTypes = {
@@ -39,10 +39,14 @@ const Alert = ({
 			</div>
 
 			<div className={styles.buttons}>
-				<Button onClick={onConfirm} modification='small'>OK</Button>
 				{
-					type == alertTypes.warning && 
-					<Button onClick={onCancel} modification='small' dark>Cancel</Button>
+					type === alertTypes.warning ?
+						<React.Fragment>
+							<Button onClick={onConfirm} modification='small'>OK</Button>
+							<Button onClick={onCancel} modification='small' dark>Cancel</Button>	
+						</React.Fragment>
+					:
+					<Button onClick={onCancel} modification='small'>OK</Button>
 				}
 			</div>
 		</div>

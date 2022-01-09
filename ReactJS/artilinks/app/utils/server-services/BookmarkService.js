@@ -140,20 +140,23 @@ class BookmarkService {
 				// retrieving collection id from deleted bookmark
 				const collectionId = bookmark.collectionId;
 
-				// finding associated collection
-				const collection = await Collection.findById(collectionId).session(session);
+				// if bookmark is not from unsorted collection, in other words its collection id is not null
+				if(collectionId !== null) {
+					// finding associated collection
+					const collection = await Collection.findById(collectionId).session(session);
 
-				// if collection not found
-				if(!collection) {
-					throw ApiError.BadRequest('Collection associated with the bookmark does not exist. Unable to delete bookmark.');
+					// if collection not found
+					if(!collection) {
+						throw ApiError.BadRequest('Collection associated with the bookmark does not exist. Unable to delete bookmark.');
+					}
+
+					// decrementing bookmarks count
+					collection.bookmarksCount--;
+
+					// saving collection in session 
+					// by default save is associated with the session used in findById method
+					await collection.save();
 				}
-
-				// decrementing bookmarks count
-				collection.bookmarksCount--;
-
-				// saving collection in session 
-				// by default save is associated with the session used in findById method
-				await collection.save();
 
 				// ensuring all requests are successful and committing transaction
 				await session.commitTransaction();

@@ -13,6 +13,7 @@ const NotificationContext = createContext({
 	addWarningNotification: () => {},
 	addInfoNotification: () => {},
 	removeNotification: () => {},
+	onConfirm: () => {},
 });
 
 export default NotificationContext;

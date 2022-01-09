@@ -33,6 +33,7 @@ const deleteGroup = async (req, res) => {
 		}
 
 		// deleting group in db
+		// the deletion also deletes collections associated with the group and bookmarks of each collection
 		const deletedGroup = await GroupService.deleteGroupById(groupId);
 
 		// responding with deleted object

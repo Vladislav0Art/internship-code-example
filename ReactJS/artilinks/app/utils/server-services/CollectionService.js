@@ -1,5 +1,10 @@
+const mongoose = require('mongoose');
 // models
 const Collection = require('../db/models/datadocs/Collection');
+const Bookmark = require('../db/models/datadocs/Bookmark');
+// exceptions
+const ApiError = require('../exceptions/ApiError');
+
 
 
 class CollectionService {
@@ -18,13 +23,77 @@ class CollectionService {
 		return collection;
 	};
 
-	// deleting collection from db
-	static deleteCollectionById = collectionId => new Promise((resolve, reject) => {
-		// finding collection and deleting it from db
-		Collection.findByIdAndDelete(collectionId)
-			.then(deletedCollection => resolve(deletedCollection))
-			.catch(err => reject(err));
+	// deleting collection from db and setting associated bookmarks as unsorted: collectionId = null
+	static deleteCollectionById = (collectionId) => new Promise(async (resolve, reject) => {
+		let error = null;
+		// object with deleted collection and its modified bookmarks
+		let result = null;
+
+		try {
+			// establishing mongoose session
+			const session = await mongoose.startSession();
+			// starting transaction
+			await session.startTransaction();
+
+			try {
+				// deleting collection with session
+				const collection = await Collection.findByIdAndDelete(collectionId).session(session);
+
+				// collection with provided id does not exist
+				if(!collection) {
+					throw ApiError.BadRequest('Collection with provided id does not exist');
+				}
+
+				// saving bookmarks whose collectionId prop will be changed
+				const bookmarks = await Bookmark.find({ collectionId }).session(session);
+
+				// setting collectionId of bookmarks to null
+				bookmarks.forEach((bookmark, index, array) => {
+					bookmark.collectionId = null;
+					array[index] = bookmark;
+				});
+
+				// updating collectionId prop of all bookmarks associated with deleted collection
+				await Bookmark.updateMany({ collectionId }, { collectionId: null }).session(session);
+
+				// ensuring all requests are successful and committing transaction
+				await session.commitTransaction();
+
+				// setting result to modified data
+				result = {
+					collection, bookmarks
+				};
+			}
+			catch(err) {
+				// aborting transaction
+				await session.abortTransaction();
+				// setting error
+				error = err;
+			}
+			finally {
+				// ending session
+				await session.endSession();
+			}
+
+		}
+		catch(err) {
+			// setting error
+			error = err;
+		}
+		finally {
+			if(error) {
+				reject(error);
+			}
+			else {
+				resolve(result);
+			}
+		}
 	});
+
+	// finding collection and deleting it from db
+		// Collection.findByIdAndDelete(collectionId)
+		// 	.then(deletedCollection => resolve(deletedCollection))
+		// 	.catch(err => reject(err));
 
 
 	// deleting collections by group id

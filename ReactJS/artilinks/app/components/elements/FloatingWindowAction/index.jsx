@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
 
-const FloatingWindowAction = ({ children }) => (<div className={styles.action}>{ children }</div>);
+const FloatingWindowAction = ({ onClick, children }) => (<div onClick={onClick} className={styles.action}>{ children }</div>);
 
 // prop types
 FloatingWindowAction.propTypes = {
@@ -12,6 +12,7 @@ FloatingWindowAction.propTypes = {
 		PropTypes.arrayOf(PropTypes.node),
 		PropTypes.node
 	]).isRequired,
+	onClick: PropTypes.func.isRequired,
 };
 
 

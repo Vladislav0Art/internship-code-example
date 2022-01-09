@@ -6,9 +6,11 @@
 
 	.content {
 		display: flex;
+		flex-shrink: 1;
 
 		.imgContainer {
 			overflow: hidden;
+			flex-shrink: 0;
 		}
 
 		img {

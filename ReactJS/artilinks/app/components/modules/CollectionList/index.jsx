@@ -9,7 +9,7 @@ import { useData } from '../../../hooks';
 
 
 const CollectionList = ({ collections }) => {
-	const { viewedCollectionId, setViewedCollectionIdAndBookmarks } = useData();
+	const { viewedCollection, setViewedCollectionAndBookmarks } = useData();
 
 	return (
 		<div className={styles.content}>
@@ -18,8 +18,8 @@ const CollectionList = ({ collections }) => {
 					<CollectionItem 
 						key={collection._id}
 						collection={collection}
-						viewedCollectionId={viewedCollectionId}
-						onCollectionClick={() => setViewedCollectionIdAndBookmarks(collection._id)}
+						viewedCollectionId={viewedCollection._id}
+						onCollectionClick={() => setViewedCollectionAndBookmarks(collection._id)}
 					/>
 				))
 			}

@@ -33,9 +33,9 @@ const updateBookmark = async (req, res) => {
 		return respondWithError(ApiError.BadRequest('Bookmark id is not provided'), res);
 	}
 
-	// if all fields are empty
-	if(!(collectionId !== undefined || title || description || imgSrc)) {
-		return respondWithError(ApiError.BadRequest('Cannot update with empty fields'), res);
+	// if title field is empty
+	if(!title && title !== undefined) {
+		return respondWithError(ApiError.BadRequest('Title cannot be empty'), res);
 	}
 
 	try {

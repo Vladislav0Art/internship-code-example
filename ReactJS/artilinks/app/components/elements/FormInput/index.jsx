@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+// elements
+import { Input } from '../../elements';
 // styles
 import styles from './styles.module.scss';
 // contexts
@@ -11,6 +13,7 @@ const FormInput = ({
   placeholder,
   name,
   type,
+  classNames: providedClassNames
 }) => {
   
   // retriving data from form context
@@ -18,21 +21,22 @@ const FormInput = ({
   const { form, handleFormInputChange } = formContext;
 
   return (
-    <input
-      className={styles.input}
-      type={type}
-      placeholder={placeholder}
-      name={name}
-      value={form[name]}
-      onChange={handleFormInputChange}
-    />
+	<Input
+		classNames={[styles.input, ...providedClassNames]}
+		type={type}
+		placeholder={placeholder}
+		name={name}
+		value={form[name]}
+		onChange={handleFormInputChange}
+	/>
   );
 };
 
 
 // default props
 FormInput.defaultProps = {
-	type: 'text'
+	type: 'text',
+	classNames: []
 };
 
 
@@ -40,7 +44,8 @@ FormInput.defaultProps = {
 FormInput.propTypes = {
 	placeholder: PropTypes.string,
 	name: PropTypes.string.isRequired,
-	type: PropTypes.oneOf(['text', 'password', 'email', 'search', 'tel'])
+	type: PropTypes.oneOf(['text', 'password', 'email', 'search', 'tel']),
+	classNames: PropTypes.arrayOf(PropTypes.string),
 };
 
 

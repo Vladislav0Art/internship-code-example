@@ -20,3 +20,13 @@ export { default as GroupList } from './GroupList';
 export { default as FloatingWindow } from './FloatingWindow';
 export { default as CollectionFloatingWindow } from './CollectionFloatingWindow';
 export { default as GroupFloatingWindow } from './GroupFloatingWindow';
+
+export { default as DashboardPanel } from './DashboardPanel';
+export { default as DataForm } from './DataForm';
+
+export { default as IconsSelector } from './IconsSelector';
+export { default as Select } from './Select';
+
+export { default as BookmarkModalGroup } from './BookmarkModalGroup';
+export { default as CollectionSelect } from './CollectionSelect';
+export { default as ProfilePreviewFloatingWindow } from './ProfilePreviewFloatingWindow';

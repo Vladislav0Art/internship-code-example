@@ -1,6 +1,6 @@
 import React from 'react';
 // modules
-import { BookmarkList } from '../../modules';
+import { BookmarkList, DashboardPanel } from '../../modules';
 // styles
 import styles from './styles.module.scss';
 
@@ -9,7 +9,7 @@ import styles from './styles.module.scss';
 const DashboardContent = () => {
 	return (
 		<div className={styles.container}>
-			<div className={styles.panel}>Dashboard top panel</div>
+			<DashboardPanel />
 
 			<div className={styles.content}>
 				<BookmarkList viewMode={"list"} />

@@ -8,7 +8,7 @@ import { useNotification } from '../../../hooks';
 
 
 const Notification = () => {
-	const { notification, removeNotification } = useNotification();
+	const { notification, onConfirm, removeNotification } = useNotification();
 	
 	return (
 		<Modal isModalVisible={notification.isNotification}>
@@ -16,7 +16,8 @@ const Notification = () => {
 				type={notification.type}
 				title={notification.title}
 				message={notification.message}
-				onConfirm={removeNotification}
+				onConfirm={onConfirm}
+				onCancel={removeNotification}
 			/>
 		</Modal>
 	);

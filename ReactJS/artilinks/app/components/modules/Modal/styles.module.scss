@@ -3,9 +3,12 @@ $filled: rgba(0, 0, 0, 0.7);
 
 .wrapper {
 	position: fixed;
+	z-index: 20;
+	padding: 15px;
+	box-sizing: border-box;
 	top: 0;
 	left: 0;
-	width: 100%;
+	width: 100vw;
 	height: 100vh;
 	display: flex;
 	align-items: center;

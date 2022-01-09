@@ -3,31 +3,26 @@ import React from 'react';
 import { CollectionItem } from '../../elements';
 // hooks
 import { useData } from '../../../hooks';
+// utils/defaults
+import defaultCollections from '../../../utils/defaults/default-collections';
 // styles 
 import styles from './styles.module.scss';
-// images
-import allBookmarksIcon from '/public/svg/dashboard/all-bookmarks-icon.svg';
-import unsortedBookmarksIcon from '/public/svg/dashboard/unsorted-bookmarks-icon.svg';
 
 
 
 
 const DefaultCollections = () => {
-	const { bookmarks, viewedCollectionId, setViewedCollectionIdAndBookmarks } = useData();
+	const { bookmarks, viewedCollection, setViewedCollectionAndBookmarks } = useData();
 
 	// default collection for all bookmarks
 	const allBookmarksCollection = {
-		_id: process.env.collections.ALL_BOOKMARKS_COLLECTION_ID,
-		label: 'All bookmarks',
-		icon: allBookmarksIcon.src,
+		...defaultCollections.allBookmarksCollection,
 		bookmarksCount: bookmarks.length
 	};
 
 	// default collection for unsorted bookmarks 
 	const unsortedBookmarksCollection = {
-		_id: process.env.collections.UNSORTED_BOOKMARKS_COLLECTION_ID,
-		label: 'Unsorted',
-		icon: unsortedBookmarksIcon.src,
+		...defaultCollections.unsortedCollection,
 		bookmarksCount: bookmarks.filter(bookmark => bookmark.collectionId === null).length
 	};
 
@@ -35,14 +30,14 @@ const DefaultCollections = () => {
 		<div className={styles.content}>
 			<CollectionItem 
 				collection={allBookmarksCollection}
-				viewedCollectionId={viewedCollectionId}
-				onCollectionClick={() => setViewedCollectionIdAndBookmarks(allBookmarksCollection._id)}
+				viewedCollectionId={viewedCollection._id}
+				onCollectionClick={() => setViewedCollectionAndBookmarks(allBookmarksCollection._id)}
 				disableActions
 			/>
 			<CollectionItem 
 				collection={unsortedBookmarksCollection}
-				viewedCollectionId={viewedCollectionId}
-				onCollectionClick={() => setViewedCollectionIdAndBookmarks(unsortedBookmarksCollection._id)}
+				viewedCollectionId={viewedCollection._id}
+				onCollectionClick={() => setViewedCollectionAndBookmarks(unsortedBookmarksCollection._id)}
 				disableActions
 			/>
 		</div>

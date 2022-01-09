@@ -6,17 +6,23 @@ import { FloatingWindowAction } from '../../elements';
 import { FloatingWindow } from '../../modules';
 
 
-const CollectionFloatingWindow = ({ transitionIn }) => {
+const CollectionFloatingWindow = ({
+	transitionIn,
+	onRename,
+	onIconChange,
+	onRemove,
+	onGroupChange,
+}) => {
 	return (
 		<FloatingWindow transitionIn={transitionIn}>
-			<FloatingWindowAction>
+			<FloatingWindowAction onClick={onRename}>
 				<svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M4.5 0C2.0186 0 0 2.0186 0 4.5C0 6.9814 2.0186 9 4.5 9C6.9814 9 9 6.9814 9 4.5C9 2.0186 6.9814 0 4.5 0ZM6.46875 4.87498H4.87498V6.46875C4.87498 6.67577 4.70702 6.84373 4.5 6.84373C4.29298 6.84373 4.12502 6.67577 4.12502 6.46875V4.87498H2.53125C2.32423 4.87498 2.15627 4.70702 2.15627 4.5C2.15627 4.29298 2.32423 4.12502 2.53125 4.12502H4.12502V2.53125C4.12502 2.32423 4.29298 2.15627 4.5 2.15627C4.70702 2.15627 4.87498 2.32423 4.87498 2.53125V4.12502H6.46875C6.67577 4.12502 6.84373 4.29298 6.84373 4.5C6.84373 4.70702 6.67577 4.87498 6.46875 4.87498V4.87498Z" fill="black"/>
 				</svg>
 				<span>Rename</span>
 			</FloatingWindowAction>
 
-			<FloatingWindowAction>
+			<FloatingWindowAction onClick={onIconChange}>
 				<svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M4.12512 5.99995V2.62505C4.12512 2.41805 3.9575 2.25006 3.75014 2.25006H0.375228C0.167865 2.25006 0.000244141 2.41805 0.000244141 2.62505V5.99995C0.000244141 6.20695 0.167865 6.37494 0.375228 6.37494H3.75014C3.9575 6.37494 4.12512 6.20695 4.12512 5.99995ZM2.25017 5.24997H1.50018C1.29282 5.24997 1.1252 5.08198 1.1252 4.87498C1.1252 4.66799 1.29282 4.5 1.50018 4.5H2.25017C2.45753 4.5 2.62515 4.66799 2.62515 4.87498C2.62515 5.08198 2.45753 5.24997 2.25017 5.24997ZM2.62515 4.125H1.50018C1.29282 4.125 1.1252 3.95701 1.1252 3.75001C1.1252 3.54302 1.29282 3.37503 1.50018 3.37503H2.62515C2.83251 3.37503 3.00013 3.54302 3.00013 3.75001C3.00013 3.95701 2.83253 4.125 2.62515 4.125Z" fill="black"/>
 					<rect x="5" y="3" width="3" height="3" fill="black"/>
@@ -28,7 +34,7 @@ const CollectionFloatingWindow = ({ transitionIn }) => {
 				<span>Change icon</span>
 			</FloatingWindowAction>
 		
-			<FloatingWindowAction>
+			<FloatingWindowAction onClick={onRemove}>
 				<svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<g clipPath="url(#clip0_444_452)">
 						<path d="M2.09707 8.24544C2.11812 8.66908 2.46524 8.99998 2.8902 8.99998H6.10985C6.53481 8.99998 6.88196 8.6691 6.90298 8.24544L7.36674 2.91174H1.6333L2.09707 8.24544ZM5.29415 4.23527H5.82356V7.14704H5.29415V4.23527ZM4.23533 4.23527H4.76474V7.14704H4.23533V4.23527ZM3.1765 4.23527H3.70591V7.14704H3.1765V4.23527Z" fill="black"/>
@@ -39,7 +45,7 @@ const CollectionFloatingWindow = ({ transitionIn }) => {
 				<span>Remove</span>
 			</FloatingWindowAction>
 
-			<FloatingWindowAction>
+			<FloatingWindowAction onClick={onGroupChange}>
 				<svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<g clipPath="url(#clip0_444_466)">
 						<path d="M8.59043 2.04498H1.39624L2.74333 0.697871C2.90309 0.538134 2.90309 0.279098 2.74333 0.119334C2.58359 -0.0404292 2.32455 -0.0404292 2.16479 0.119334L0.119334 2.16479C-0.0404292 2.32452 -0.0404292 2.58356 0.119334 2.74333L2.16479 4.78878C2.24467 4.86866 2.34937 4.90862 2.45407 4.90862C2.55877 4.90862 2.66347 4.86866 2.74333 4.78878C2.90309 4.62904 2.90309 4.37001 2.74333 4.21024L1.39624 2.86316H8.59043C8.81636 2.86316 8.99952 2.68 8.99952 2.45407C8.99952 2.22814 8.81636 2.04498 8.59043 2.04498Z" fill="black"/>
@@ -55,8 +61,14 @@ const CollectionFloatingWindow = ({ transitionIn }) => {
 
 
 // prop types
+const requiredFunc = PropTypes.func.isRequired;
+
 CollectionFloatingWindow.propTypes = {
-	transitionIn: PropTypes.bool.isRequired
+	transitionIn: PropTypes.bool.isRequired,
+	onRename: requiredFunc,
+	onIconChange: requiredFunc,
+	onRemove: requiredFunc,
+	onGroupChange: requiredFunc,
 };
 
 
