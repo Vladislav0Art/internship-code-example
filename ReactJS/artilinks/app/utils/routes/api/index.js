@@ -1,5 +1,5 @@
 // variables with paths to api endpoints
-export const API_URL = 'http://localhost:3000/api';
+export const API_URL = `${process.env.DOMAIN}/api`; // check next.config.js to see domain
 
 // auth
 export const LOGIN_API_URL = `${API_URL}/auth/login`;

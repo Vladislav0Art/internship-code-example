@@ -25,6 +25,8 @@ const LoginPage = () => {
 		catch(err) {
 			const errorMessageData = err?.response?.data;
 			console.error(errorMessageData);
+			console.error(err);
+			console.dir(err);
 			// adding error to global error state
 			addErrorNotification(errorMessageData);
 		}

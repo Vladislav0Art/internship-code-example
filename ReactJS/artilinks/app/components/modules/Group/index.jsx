@@ -24,6 +24,7 @@ const Group = ({ group }) => {
 	} = useData();
 	
 	const { 
+		addErrorNotification,
 		addWarningNotification,
 		addInfoNotification, 
 		removeNotification
@@ -77,6 +78,14 @@ const Group = ({ group }) => {
 			});
 		}
 		catch(err) {
+			// removing notification of deletion warning
+			await removeNotification();			
+			// awaiting to get smooth notification animation
+			await delay(250);
+			// adding error notification
+			addErrorNotification({
+				message: err.message
+			});
 			console.error(err);
 		}
 	};

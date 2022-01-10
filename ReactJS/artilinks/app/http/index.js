@@ -22,7 +22,7 @@ $api.interceptors.response.use(
     const originalRequest = error.config;
 
     // if 401 status code received try to refresh tokens
-    if(error.response.status === 401 && error.config && !error.config._isRetry) {
+    if(error?.response?.status === 401 && error.config && !error.config._isRetry) {
       // if original request returns 401 status do not run the code below
       originalRequest._isRetry = true;
       

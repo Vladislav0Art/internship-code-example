@@ -90,11 +90,6 @@ class CollectionService {
 		}
 	});
 
-	// finding collection and deleting it from db
-		// Collection.findByIdAndDelete(collectionId)
-		// 	.then(deletedCollection => resolve(deletedCollection))
-		// 	.catch(err => reject(err));
-
 
 	// deleting collections by group id
 	static deleteCollectionsByGroupId = groupId => new Promise((resolve, reject) => {
@@ -120,6 +115,7 @@ class CollectionService {
 		Collection.findByIdAndUpdate(collectionId, updateOptions, {
 			runValidators: true,
 			omitUndefined: true,
+			useFindAndModify: false,
 			new: true,
 		})
 			.then(collection => resolve(collection))

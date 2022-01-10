@@ -59,7 +59,7 @@ const loginUser = async (req, res) => {
     await TokenService.saveRefreshToken(userDto.id, tokens.refreshToken);
 
 
-		// setting refresh token in http-only cookies
+	// setting refresh token in http-only cookies
     TokenService.setRefreshTokenInHttpOnlyCookies(req, res, tokens.refreshToken);
 
     res.status(200).json({
