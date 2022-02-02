@@ -1,3 +1,3 @@
-# Mytest - testing library (mini-clone of doctest)
+# Mytest - Unit testing library
 
-This is a small testing library created using C++ macros as a third homework lab in HSE University.
+This is a testing library created using C++ macros as a homework lab in HSE University.
