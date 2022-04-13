@@ -1,0 +1,8 @@
+@media all and (max-width: 576px) {
+  .loading {
+    &__icon svg {
+      width: 200px;
+      height: 200px;
+    }
+  }
+}

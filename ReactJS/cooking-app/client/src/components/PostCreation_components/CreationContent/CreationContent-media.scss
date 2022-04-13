@@ -1,0 +1,35 @@
+@media all and (max-width: 992px) {
+  .creationContent {
+    &__left {
+      margin-right: 0;
+    }
+  }
+}
+
+@media all and (max-width: 576px) {
+  .creationContent {
+    &__imagesContainer {
+      grid-template-columns: 1fr 1fr;
+      margin: 0 auto;
+    }
+
+    &__image {    
+      max-width: 280px;
+      max-height: 180px;
+    }
+
+    &__imageBlock {
+      position: relative;
+  
+      &-small {
+        width: 120px;
+        height: 80px;
+      }
+    }
+
+    &__video {
+      max-width: 280px;
+      max-height: 180px;
+    }
+  }
+}

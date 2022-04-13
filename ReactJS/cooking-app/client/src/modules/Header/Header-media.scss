@@ -1,0 +1,44 @@
+@media all and (max-width: 992px) {
+  .header {
+    &__logo {
+      margin: 0 20px 0 0;
+      font-size: 20px;
+    }
+
+    &__search {
+      padding: 0 15px;
+  
+      &-icon {
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 576px) {
+  .header {
+    &__logo {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    &__search {
+      display: none;
+    }
+
+    &__btn {
+      font-size: 10px;
+      padding: 6px 16px;
+    }
+
+    &__burger {
+      width: 30px;
+    }
+
+    &__item {
+      &:first-of-type {
+        flex-basis: 45%;
+      }
+    }
+  }
+}

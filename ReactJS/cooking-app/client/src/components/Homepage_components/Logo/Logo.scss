@@ -1,0 +1,11 @@
+@import '../../../styles/colors.scss';
+
+.logo {
+  text-decoration: none;
+  font-family: 'Lora';
+  font-weight: 400;
+
+  &-span {
+    color: $logo-span-color;
+  }
+}

@@ -1,0 +1,1 @@
+export { default as loadMime } from './loadMime';

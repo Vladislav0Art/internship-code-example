@@ -1,0 +1,88 @@
+@import '../../../styles/colors.scss';
+
+.postcard {
+  max-width: 360px;
+  width: 100%;
+  min-height: 350px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 6px 0 $post-shadow;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &__top {
+    position: relative;
+    height: 180px;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 15px 10px;
+    height: 100%;
+    justify-content: space-between;
+  }
+
+  &__titles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    margin: 0;
+    font-family: 'Roboto Slab';
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  &__mealtype {
+    font-family: 'Roboto Slab';
+    font-size: 10px;
+    font-weight: 300;
+    color: $input-color;
+  }
+
+  &__parag {
+    font-family: 'Roboto Slab';
+    font-size: 12px;
+    line-height: 160%;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  &__btn {
+    font-size: 8px;
+    line-height: 158%;
+    font-weight: bold;
+    padding: 6px 14px;
+
+    &:first-of-type {
+      margin-right: 10px;
+    }
+
+    &-add {
+      background: $action-btn;
+    }
+
+    &-wishlist {
+      background: $wishlist-btn;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+@media all and (max-width: 1200px) {
+  .postsContainer {
+    &__posts {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}
+
+@media all and (max-width: 992px) {
+  .postsContainer {
+    &__posts {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media all and (max-width: 768px) {
+  .postsContainer {
+    &__posts {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+
+@media all and (max-width: 576px) {
+
+}
+

@@ -1,0 +1,130 @@
+@import '../../styles/colors.scss';
+
+.header {
+  position: fixed;
+  z-index: 3;
+  left: 0;
+  top: 0px;
+  background: $header-bg-color;
+  border-bottom: 1px solid #EDEAEA;
+  width: 100%;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    &:first-of-type {
+      flex-basis: 50%;
+    }
+
+    &-loader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-message {
+      margin-left: 8px;
+    }
+  }
+
+  &__logo {
+    margin: 0 40px 0 0;
+    color: #000;
+    font-size: 26px;
+  }
+
+  &__search {
+    height: 100%;
+    background: $input-bg-color;
+    box-sizing: border-box;
+    padding: 0 25px;
+    display: flex;
+    flex-basis: 500px;
+    align-items: center;
+
+    &-icon {
+      color: $input-color;
+      margin-right: 15px;
+    }
+  }
+
+  &__input {
+    font-family: 'Lora';
+    background: transparent;
+    border: none;
+    padding: 3px 0;
+    border-bottom: 1px solid $input-stroke-color;
+    color: $input-color;
+    width: 100%;
+    outline: none;
+  }
+
+  &__btn:first-of-type {
+    margin-right: 10px;
+  }
+
+  &__burger {
+    position: relative;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    transition: 0.3s;
+    cursor: pointer;
+    width: 35px;
+    height: 25px;
+
+    &-hidden {
+      opacity: 0;
+      z-index: -1;
+    }
+
+    &:hover &-span {
+      width: 100%;
+    }
+
+    &-span {
+      transition: 0.3s;
+      display: block;
+      height: 2px;
+      background-color: black;
+
+      &:nth-child(1) {
+        width: 90%;
+      }
+      &:nth-child(2) {
+        width: 75%;
+      }
+      &:nth-child(3) {
+        width: 50%;
+      }
+    }
+  }
+
+  &__closer {
+    position: relative;
+    font-size: 24px;
+    opacity: 0;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: -1;
+
+    &:hover {
+      transform: rotate(180deg);
+    }
+
+    &-show {
+      opacity: 1;
+      z-index: inherit;
+    }
+  }
+}

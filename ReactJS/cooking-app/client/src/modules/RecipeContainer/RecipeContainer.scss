@@ -1,0 +1,31 @@
+@import '../../styles/colors.scss';
+
+.RecipeContainer {
+  max-width: 930px;
+
+  &__title {
+    font-family: 'Roboto Slab';
+    font-size: 28px;
+    text-transform: uppercase;
+    font-weight: 600;
+    max-width: 860px;
+    position: relative;
+    margin: 0;
+    margin-bottom: 30px;
+    
+    &::after {
+      content: '';
+      display: block;
+      background-color: $input-stroke-color;
+      height: 2px;
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template: 1fr;
+    gap: 30px;
+  }
+}

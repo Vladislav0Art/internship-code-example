@@ -1,0 +1,13 @@
+.account {
+  &__content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+  }
+
+  &__left {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 80px 0;
+  }
+}

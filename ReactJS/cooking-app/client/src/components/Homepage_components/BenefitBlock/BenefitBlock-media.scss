@@ -1,0 +1,50 @@
+@media all and (max-width: 992px) {
+  .benefit {
+    &__content {
+      justify-content: center;
+    }
+  
+    &__img {
+      max-width: 800px;
+      max-height: 400px;
+      width: 100%;
+      height: 100%;
+    }
+  
+    &__block {
+      position: absolute;
+      top: 40px;
+      &-right {
+        right: 20px;
+      }
+  
+      &-left {
+        left: 20px;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 768px) {
+  .benefit {  
+    &__img {
+      display: none;
+    }
+  
+    &__block {
+      position: static;
+      max-width: 520px;
+      min-height: 230px;
+      width: 100%;
+
+      top: 0;
+      &-right {
+        right: 0;
+      }
+  
+      &-left {
+        left: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+@media all and (max-width: 1200px) {
+  .profile {
+    &__block {
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 992px) {
+  .profile {
+    &__content {
+      grid-template-columns: 1fr;
+    }
+
+    &__right {
+      justify-self: stretch;
+    }
+
+    &__group {
+      max-width: 400px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    &__left {
+      justify-self: center;
+      padding-top: 0;
+    }
+
+    &__avatar {
+      margin-right: 0;
+      margin-bottom: 30px;
+    }
+
+    &__block {
+      flex-direction: column;
+    }
+
+    &__submitBlock {
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    &__btn {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  }
+}

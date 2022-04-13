@@ -1,0 +1,49 @@
+.main {
+  position: relative;
+  margin-top: 60px;
+  height: calc(100vh - 60px);
+  max-height: 800px;
+  width: 100%;
+  background-image: url('../../../img/main_bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__content {
+    padding-top: 105px;
+    color: white;
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+
+  &__block {
+    &:nth-child(2) {
+      max-width: 310px;
+    }
+
+    &-title {
+      font-family: 'Montserrat';
+      font-weight: 900;
+      font-size: 64px;
+      line-height: 157%;
+      margin: 0;
+      letter-spacing: 15px;
+
+      &:nth-child(2) {
+        margin-left: 45px;
+      }
+      &:nth-child(4) {
+        margin-left: 45px;
+      }
+    }
+
+    &-parag {
+      font-family: 'Roboto Slab';
+      margin-bottom: 20px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

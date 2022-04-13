@@ -1,0 +1,9 @@
+@media all and (max-width: 1200px) {
+  .account {
+    &__content {
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+  }
+}

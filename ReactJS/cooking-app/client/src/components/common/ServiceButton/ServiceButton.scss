@@ -1,0 +1,14 @@
+@import '../../../styles/colors.scss';
+
+.black-button {
+  font-family: 'Montserrat', 'sans-serif';
+  font-size: 12px;
+  font-weight: bold;
+  background-color: $service-btn-bg;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  padding: 6px 32px;
+  outline: none;
+}

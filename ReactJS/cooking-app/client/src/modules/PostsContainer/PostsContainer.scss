@@ -1,0 +1,25 @@
+@import '../../styles/colors.scss';
+
+.postsContainer {
+  &__title {
+    font-family: 'Roboto Slab';
+    font-size: 32px;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 35px;
+  }
+
+  &__posts {
+    display: grid;
+    justify-items: center;
+    justify-content: center;  
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px 20px;
+  }
+
+  &__warning {
+    color: $action-btn;
+    font-size: 24px;
+    font-family: 'Roboto Slab';
+  }
+}

@@ -1,0 +1,21 @@
+@media all and (max-width: 576px) {
+  .item {
+    padding: 12px 8px;
+
+    &__block {
+      flex-basis: 75%;
+    }
+
+    &__text {
+      font-size: 12px;
+    }
+
+    &__input {
+      font-size: 12px;
+    }
+
+    &__icon {
+      font-size: 12px;
+    }
+  }
+}

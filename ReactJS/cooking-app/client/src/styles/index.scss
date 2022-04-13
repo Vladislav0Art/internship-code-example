@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&display=swap');
+@import './colors.scss';
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.container {
+  position: relative;
+  max-width: 1370px;
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.section {
+  margin-top: 120px;
+
+  &__title {
+    font-family: 'Roboto Slab';
+    font-weight: bold;
+    font-size: 28px;
+    text-transform: uppercase;
+  }
+}
+
+.message {
+  font-size: 14px;
+  font-family: 'Roboto Slab';
+}
+
+.Toastify__toast--default {
+  color: $service-btn-bg;
+}
+.Toastify__toast--info {
+  background-color: $service-btn-bg;
+  color: white;
+}
+.Toastify__toast--success {
+  background-color: $wishlist-btn;
+  color: white;
+}
+.Toastify__toast--error {
+  background-color: $action-btn;
+  color: white;
+
+}
+.Toastify__toast-body {
+  font-size: 14px;
+  font-family: 'Roboto Slab';
+}
+
+
+@media all and (max-width: 768px) {
+  .section {
+    &__title {
+      font-size: 18px;
+      text-align: center;
+    }
+  }
+}

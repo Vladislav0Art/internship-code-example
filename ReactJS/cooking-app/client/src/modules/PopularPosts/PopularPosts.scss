@@ -1,0 +1,57 @@
+@import '../../styles/colors.scss';
+
+.popularPosts {
+  max-width: 860px;
+  background: $benefit-block-text;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 20px 15px;
+
+  &__title {
+    font-family: 'Roboto Slab';
+    font-size: 28px;
+    text-transform: uppercase;
+    font-weight: 600;
+    position: relative;
+    margin: 0;
+    margin-bottom: 30px;
+    
+    &::after {
+      content: '';
+      display: block;
+      background-color: $input-stroke-color;
+      height: 2px;
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+
+  &__item {
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__link {
+    color: white;
+    font-size: 14px;
+    font-family: 'Lora';
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 4px;
+    padding: 10px 37px;
+    display: inline-block;
+    background-color: $wishlist-btn;
+  }
+}

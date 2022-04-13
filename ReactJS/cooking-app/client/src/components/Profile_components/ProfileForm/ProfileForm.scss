@@ -1,0 +1,109 @@
+@import '../../../styles/colors.scss';
+
+.profile {
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    justify-content: space-around;
+    gap: 30px;
+  }
+
+  &__left {
+    padding-top: 125px;
+    justify-self: right;
+  }
+
+  &__block {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: -60px;
+      width: 800px;
+      height: 500px;
+      background: $input-bg-color;
+      z-index: -1;
+    }
+  }
+
+  &__avatar {
+    margin-right: 120px;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 3px solid $additional-dark-color;
+    overflow: hidden;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__fileInput {
+    width: 0;
+    height: 0;
+    position: absolute;
+    z-index: -10;
+    opacity: 0;
+  }
+
+  &__fileInput:focus + label {
+    outline: auto;
+    outline: -webkit-focus-ring-color auto 5px;
+  }
+
+  &__serviceBtn {
+    cursor: pointer;
+    display: inline-block;
+    background: black;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Montserrat';
+    line-height: 160%;
+    padding: 11px 20px;
+    border-radius: 3px;
+    margin: 10px;
+  }
+
+  &__btns {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__textarea {
+    border: none;
+    border-radius: 6px;
+    box-sizing: border-box;
+    padding: 15px 15px;
+    box-shadow: 0 0 6px 0 $post-shadow;
+    outline: none;
+    font-family: 'Roboto Slab';
+    max-width: 400px;
+    resize: none;
+    min-height: 220px;
+  }
+
+  &__btn {
+    display: inline-block;
+    cursor: pointer;
+    background: $wishlist-btn;
+    font-weight: 400;
+    font-family: 'Roboto Slab';
+    padding: 12px 28px;
+    margin-right: 15px;
+  }
+
+  &__submitBlock {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+  }
+}

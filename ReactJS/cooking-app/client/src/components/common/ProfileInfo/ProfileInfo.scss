@@ -1,0 +1,43 @@
+@import '../../../styles/colors.scss';
+
+.profile {
+  &-info {
+    display: flex;
+    align-items: center;
+  }
+
+  &-avatar {
+    position: relative;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+  }
+
+  &-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &-link {
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'Roboto Slab';
+    color: $additional-dark-color;
+
+    &::after {
+      content: '';
+      display: block;
+      background: $input-stroke-color;
+      transition: 0.3s;
+      width: 100%;
+      height: 1px;
+    }
+
+    &:hover::after {
+      background: $additional-elements-color;
+    }
+  }
+}

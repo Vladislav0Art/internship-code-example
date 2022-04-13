@@ -1,0 +1,65 @@
+@import '../../../styles/colors.scss';
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 15px;
+  box-sizing: border-box;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 0 6px 0 $post-shadow;
+  margin-bottom: 25px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &__input {
+    border-bottom-width: 1px;
+    border-color: $input-stroke-color;
+
+    &:focus {
+      border-color: $additional-elements-color;
+    }
+  }
+
+  &__block {
+    flex-basis: 85%;
+  }
+
+  &__text {
+    font-family: 'Roboto Slab';
+    font-weight: 300;
+    color: $input-color;
+    font-size: 14px;
+    line-height: 160%;
+  }
+
+  &__icon {
+    margin: 5px;
+    font-size: 14px;
+    color: $additional-elements-color;
+    transition: 0.1s;
+
+    &-check:hover {
+      color: $wishlist-btn;
+    }
+
+    &-edit:hover {
+      color: $service-btn-bg;
+    }
+
+    &-trash:hover {
+      color: $action-btn;
+    }
+  }
+
+  &__btn {
+    outline: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+}
